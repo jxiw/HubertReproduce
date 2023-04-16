@@ -83,6 +83,20 @@ for rank in $(seq 0 $((nshard-1))); do
 done
 ```
 
+To obtain validation labels.
+
+```
+export feat_dir=libri6k_feat/
+export split=valid
+export km_path=libri6k_km
+export nshard=50
+export lab_dir=libri6k_lab/
+
+for rank in $(seq 0 $((nshard-1))); do
+	python simple_kmeans/dump_km_label.py ${feat_dir} ${split} ${km_path} ${nshard} ${rank} ${lab_dir}
+done
+```
+
 ### Step 6. Create a dummy dict
 
 ```
@@ -106,3 +120,22 @@ python fairseq_cli/hydra_train.py \
   --config-name hubert_base_librispeech \
   task.data=${data_path} task.label_dir=${label_path} task.labels='["km"]' model.label_rate=100
 ```
+
+Here are training curves.
+
+![Train PPL](ppl.png)
+
+![Loss](valid_loss.png)
+
+![Valid PPL](valid_ppl.png)
+
+![Valid Accuracy](accuracy.png)
+
+## Models and checkpoints
+
+Models and checkpoints are saved [here](https://drive.google.com/drive/folders/1kM4zaJgnRqx7z1zwY8kUS10Rg2mTzp_r?usp=sharing).
+
+
+
+
+
