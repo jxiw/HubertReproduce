@@ -10,9 +10,7 @@ import torch.nn.functional as F
 from torch.nn.modules.utils import consume_prefix_in_state_dict_if_present
 
 URLS = {
-    "hubert-discrete": "https://github.com/bshall/hubert/releases/download/v0.1/hubert-discrete-e9416457.pt",
-    "hubert-soft": "https://github.com/bshall/hubert/releases/download/v0.1/hubert-soft-0d54a1f4.pt",
-    "kmeans100": "https://github.com/bshall/hubert/releases/download/v0.1/kmeans100-50f36a95.pt",
+    "hubert-reproduce": "https://drive.google.com/file/d/1GXYGkVZm0VlbLa5ehhu2d4anyxz7AIG9/view?usp=sharing",
 }
 
 
