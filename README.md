@@ -145,7 +145,7 @@ loss:
   loss_weights: [10,]
 ```
 
-Here are training curves on a single A6000 which takes 6 days.
+Here are training curves on a single A6000 which takes 6.5 days.
 
 ![Train PPL](ppl.png)
 
