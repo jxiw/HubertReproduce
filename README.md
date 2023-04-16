@@ -121,7 +121,31 @@ python fairseq_cli/hydra_train.py \
   task.data=${data_path} task.label_dir=${label_path} task.labels='["km"]' model.label_rate=100
 ```
 
-Here are training curves.
+Hyperparameters:
+
+```
+optimization:
+  max_update: 400000
+  lr: [0.0001]
+  clip_norm: 10.0
+optimizer:
+  _name: adam
+  adam_betas: (0.9,0.98)
+  adam_eps: 1e-06
+  weight_decay: 0.01
+dataset:
+  num_workers: 1
+  max_tokens: 6000000
+  validate_interval: 5
+  validate_interval_updates: 10000
+loss:
+  _name: hubert
+  pred_masked_weight: 1.0
+  pred_nomask_weight: 0.0
+  loss_weights: [10,]
+```
+
+Here are training curves on a single A6000 which takes 6 days.
 
 ![Train PPL](ppl.png)
 
@@ -133,7 +157,7 @@ Here are training curves.
 
 ## Models and checkpoints
 
-Models and checkpoints are saved [here](https://drive.google.com/drive/folders/1kM4zaJgnRqx7z1zwY8kUS10Rg2mTzp_r?usp=sharing).
+Models and checkpoints are saved [here](https://drive.google.com/drive/folders/1kM4zaJgnRqx7z1zwY8kUS10Rg2mTzp_r?usp=sharing~~~~).
 
 
 
